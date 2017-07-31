@@ -1,32 +1,62 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>MovieInfo</title>
-    <link rel="stylesheet" href="https://bootswatch.com/cyborg/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/style.css">
-  </head>
-  <body>
-    <nav class="navbar navbar-default">
-      <div class="container">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="/">MovieInfo</a>
-        </div>
+<% include partials/header %>
+
+
+
+<div class="container">
+
+
+      <div class="row">
+          <div class="col-md-4">
+            <img src="<%= data.Poster %>">
+            
+          </div>
+        
+        
+          <div class="col-md-8">
+            <h2><%= data.Title %></h2>
+              <ul class="list-group">
+                <li class="list-group-item"><strong>Genre:</strong> <%= data.Genre %> </li>
+                <li class="list-group-item"><strong>Released:</strong> <%= data.Released %> </li>
+                <li class="list-group-item"><strong>Rated:</strong> <%= data.Rated %></li>
+                <li class="list-group-item"><strong>IMDB Rating:</strong> <%= data.imdbRating %></li>
+                <li class="list-group-item"><strong>Director:</strong> <%= data.Director %></li>
+                <li class="list-group-item"><strong>Writer:</strong> <%= data.Writer %> </li>
+                <li class="list-group-item"><strong>Actors:</strong> <%= data.Actors %></li>
+              </ul>
+            
+            
+            
+          </div>
       </div>
-    </nav>
 
-    <div class="container">
-      <div id="movie" class="well"></div>
-    </div>
+      
+      
+      <div class="row" style="margin-top:15px">
+              
+              <div class="well">
+                  <h3>Plot</h3>
+                  
+                  <p><%= data.Plot %></p>
+                  <hr>
+                  <a href="http://imdb.com/title/<%= data.imdbID %>" target="_blank" class="btn btn-primary">View it on IMDB</a>
+                  <a href="/" class="btn btn-default">Go Back To Search</a>
+                </div>
+              
+      </div>
 
-    <script
-  src="https://code.jquery.com/jquery-3.1.1.min.js"
-  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-  crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <script src="js/main.js"></script>
-  <script>
-    //getMovie();
-  </script>
-  </body>
-</html>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<% include partials/footer %>

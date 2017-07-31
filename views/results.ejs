@@ -9,18 +9,18 @@
 
 
 
-<div class="container">
+<div class="container movielist">
     <div class="row text-center" style="display:flex; flex-wrap: wrap;">
         
         
         
     
         <% data["Search"].forEach(function(movie) { %>
-          <div class="col-md-3 col-sm-6" ">
+          <div class="col-md-3 col-sm-6 ">
                 <div class="well text-center">
                   <img src="<%= movie.Poster %>">
                   <h5><%= movie.Title %></h5>
-                  
+                  <a href="/results/<%= movie.imdbID %>" class="btn btn-primary">Movie Details</a>
                 </div>
           </div>
           

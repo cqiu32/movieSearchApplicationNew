@@ -32,12 +32,27 @@ app.get("/results", function(req, res){
     request(url, function(error, response, bd){
         if(!error && response.statusCode == 200) {
             var data = JSON.parse(bd)
-            console.log(data["Search"][0]);
+            //console.log(data["Search"][0]);
             res.render("results", {data: data,query:query});
         }
     });
 });
 
+
+
+app.get("/results/:id", function(req, res){
+    //console.log("request.BODY is below!!!")
+    //console.log(req.body);
+    var query = req.params.id;
+    var url = "http://omdbapi.com/?i=" + query+"&plot=full&apikey=thewdb";
+    request(url, function(error, response, bd){
+        if(!error && response.statusCode == 200) {
+            var data = JSON.parse(bd)
+            console.log(data);
+            res.render("movie", {data: data});
+        }
+    });
+});
 
 
 
